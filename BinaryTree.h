@@ -14,9 +14,12 @@ using namespace std;
 class BinaryTree {
 private:
   Node *_first_node;
+  Node* recursive_insert(Node *new_node, Node *curr_node);
+  ostream& recursive_print(ostream& os, Node *curr_node) const;
 public:
-  BinaryTree();
   BinaryTree(Node *fnode) : _first_node(fnode) {}
+
+  Node* insert(Node *new_node);
 
   Node* first_node() const { return _first_node; }
 

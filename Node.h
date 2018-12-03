@@ -13,8 +13,8 @@ using namespace std;
 class Node {
 private:
   string _value;
-  Node *_left_child;
-  Node *_right_child;
+  Node *_left_child = 0;
+  Node *_right_child = 0;
 public:
   Node(string value) : _value(value) {}
 

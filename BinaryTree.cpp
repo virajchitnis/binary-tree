@@ -5,7 +5,50 @@
 
 #include "BinaryTree.h"
 
+Node* BinaryTree::recursive_insert(Node *new_node, Node *curr_node) {
+  if (curr_node == 0) {
+    curr_node = new_node;
+    return new_node;
+  }
+  else {
+    if (*new_node < *curr_node) {
+      if (curr_node->has_left_child()) {
+        return recursive_insert(new_node, curr_node->left_child());
+      }
+      else {
+        curr_node->set_left_child(new_node);
+        return new_node;
+      }
+    }
+    else if (*new_node > *curr_node) {
+      if (curr_node->has_right_child()) {
+        return recursive_insert(new_node, curr_node->right_child());
+      }
+      else {
+        curr_node->set_right_child(new_node);
+        return new_node;
+      }
+    }
+  }
+  return curr_node;
+}
+
+ostream& BinaryTree::recursive_print(ostream& os, Node *curr_node) const {
+  os << "[" << *curr_node << "]" << endl;
+  if (curr_node->has_left_child()) {
+    recursive_print(os, curr_node->left_child());
+  }
+  if (curr_node->has_right_child()) {
+    recursive_print(os, curr_node->right_child());
+  }
+  return os;
+}
+
+Node* BinaryTree::insert(Node *new_node) {
+  return recursive_insert(new_node, _first_node);
+}
+
 // Overload the << operator
 ostream& operator<<(ostream& os, const BinaryTree& n) {
-  return os << "\033[1;31mTo be implemented\033[0m";
+  return n.recursive_print(os, n.first_node());
 }
