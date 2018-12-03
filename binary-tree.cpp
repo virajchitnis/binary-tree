@@ -1,3 +1,8 @@
+/* Author: Viraj R Chitnis
+ * Date: 03/12/18
+ * Copyright (c) 2018 Viraj Chitnis. All Rights Reserved.
+ */
+
 #include <iostream>
 #include "Node.h"
 
