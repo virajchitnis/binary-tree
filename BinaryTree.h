@@ -17,11 +17,13 @@ private:
   int _size = 0;
   Node* recursive_insert(Node *new_node, Node *curr_node);
   ostream& recursive_print(ostream& os, Node *curr_node) const;
+  bool recursive_lookup(Node *curr_node, string *target);
 public:
   BinaryTree();
   BinaryTree(Node *fnode) : _first_node(fnode) { _size++; }
 
   Node* insert(Node *new_node);
+  bool lookup(string target);
   int size() const { return _size; }
 
   Node* first_node() const { return _first_node; }

@@ -52,6 +52,8 @@ int main() {
   bt.insert(new Node("Wow"));
   cout << bt;
   cout << "Size: " << bt.size() << endl;
+  cout << "Contains (Blah): " << bt.lookup("Blah") << endl;
+  cout << "Contains (Test): " << bt.lookup("Test") << endl;
   // cout << bt.insert(b);
   // cout << bt.insert(c);
 
