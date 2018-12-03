@@ -50,10 +50,15 @@ int main() {
   bt.insert(new Node("Person"));
   bt.insert(new Node("Blah"));
   bt.insert(new Node("Wow"));
+  bt.insert(new Node("Irate"));
   cout << bt;
   cout << "Size: " << bt.size() << endl;
   cout << "Contains (Blah): " << bt.lookup("Blah") << endl;
   cout << "Contains (Test): " << bt.lookup("Test") << endl;
+
+  BinaryTree rt = *bt.search("ir");
+  cout << "Search (ir):" << endl;
+  cout << rt;
   // cout << bt.insert(b);
   // cout << bt.insert(c);
 

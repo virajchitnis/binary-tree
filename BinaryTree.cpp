@@ -75,6 +75,30 @@ bool BinaryTree::lookup(string target) {
   return recursive_lookup(_first_node, &target);
 }
 
+void BinaryTree::recursive_search(Node *curr_node, string *query, BinaryTree *bt) {
+  string v = curr_node->value();
+  transform(v.begin(), v.end(), v.begin(), ::tolower);
+  if (v.find(*query) != string::npos) {
+    bt->insert(new Node(curr_node->value()));
+  }
+  if (curr_node->has_left_child()) {
+    recursive_search(curr_node->left_child(), query, bt);
+  }
+  if (curr_node->has_right_child()) {
+    recursive_search(curr_node->right_child(), query, bt);
+  }
+}
+
+BinaryTree* BinaryTree::search(string query) {
+  if (_first_node == 0) {
+    return 0;
+  }
+  transform(query.begin(), query.end(), query.begin(), ::tolower);
+  BinaryTree *bt = new BinaryTree();
+  recursive_search(_first_node, &query, bt);
+  return bt;
+}
+
 // Overload the << operator
 ostream& operator<<(ostream& os, const BinaryTree& n) {
   return n.recursive_print(os, n.first_node());
