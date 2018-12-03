@@ -53,17 +53,15 @@ Node* BinaryTree::insert(Node *new_node) {
   return recursive_insert(new_node, _first_node);
 }
 
-bool BinaryTree::recursive_lookup(Node *curr_node, string *target) {
-  if (curr_node->value() == *target) {
+bool BinaryTree::recursive_lookup(Node *curr_node, Node *target) {
+  if (*curr_node == *target) {
     return true;
   }
-  else {
-    if (curr_node->has_left_child()) {
-      return recursive_lookup(curr_node->left_child(), target);
-    }
-    if (curr_node->has_right_child()) {
-      return recursive_lookup(curr_node->right_child(), target);
-    }
+  else if (*target < *curr_node && curr_node->has_left_child()) {
+    return recursive_lookup(curr_node->left_child(), target);
+  }
+  else if (*target > *curr_node && curr_node->has_right_child()) {
+    return recursive_lookup(curr_node->right_child(), target);
   }
   return false;
 }
@@ -72,7 +70,8 @@ bool BinaryTree::lookup(string target) {
   if (_first_node == 0) {
     return false;
   }
-  return recursive_lookup(_first_node, &target);
+  Node *n = new Node(target);
+  return recursive_lookup(_first_node, n);
 }
 
 void BinaryTree::recursive_search(Node *curr_node, string *query, BinaryTree *bt) {

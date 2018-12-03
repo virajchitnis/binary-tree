@@ -55,6 +55,7 @@ int main() {
   cout << "Size: " << bt.size() << endl;
   cout << "Contains (Blah): " << bt.lookup("Blah") << endl;
   cout << "Contains (Test): " << bt.lookup("Test") << endl;
+  cout << "Contains (Irate): " << bt.lookup("Irate") << endl;
 
   BinaryTree rt = *bt.search("ir");
   cout << "Search (ir):" << endl;

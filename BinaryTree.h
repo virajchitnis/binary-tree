@@ -17,7 +17,7 @@ private:
   int _size = 0;
   Node* recursive_insert(Node *new_node, Node *curr_node);
   ostream& recursive_print(ostream& os, Node *curr_node) const;
-  bool recursive_lookup(Node *curr_node, string *target);
+  bool recursive_lookup(Node *curr_node, Node *target);
   void recursive_search(Node *curr_node, string *query, BinaryTree *bt);
 public:
   BinaryTree();
