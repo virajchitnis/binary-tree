@@ -7,8 +7,20 @@ CXX=g++
 CXXFLAGS=-Wall -pedantic -g -std=c++17
 CC=$(CXX)
 CFLAGS=$(CXXFLAGS)
+EXECUTABLE=binary-tree
 
-all: Node.o
+# Compile the entire project
+all: $(EXECUTABLE)
+
+# Compile and run the entire project
+run: all
+	./$(EXECUTABLE)
+
+$(EXECUTABLE): binary-tree.o Node.o
+	$(CC) $(CFLAGS) -o $(EXECUTABLE) binary-tree.o Node.o
+
+binary-tree.o: binary-tree.cpp
+	$(CC) $(CFLAGS) -c binary-tree.cpp
 
 Node.o: Node.h Node.cpp
 	$(CC) $(CFLAGS) -c Node.cpp
@@ -16,5 +28,5 @@ Node.o: Node.h Node.cpp
 # Clean up the source code directory
 clean:
 	-rm *.o
-	-rm simplified-phonebook
+	-rm $(EXECUTABLE)
 	-rm -r *.dSYM
