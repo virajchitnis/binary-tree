@@ -16,14 +16,17 @@ all: $(EXECUTABLE)
 run: all
 	./$(EXECUTABLE)
 
-$(EXECUTABLE): binary-tree.o Node.o
-	$(CC) $(CFLAGS) -o $(EXECUTABLE) binary-tree.o Node.o
+$(EXECUTABLE): binary-tree.o Node.o BinaryTree.o
+	$(CC) $(CFLAGS) -o $(EXECUTABLE) binary-tree.o Node.o BinaryTree.o
 
 binary-tree.o: binary-tree.cpp
 	$(CC) $(CFLAGS) -c binary-tree.cpp
 
 Node.o: Node.h Node.cpp
 	$(CC) $(CFLAGS) -c Node.cpp
+
+BinaryTree.o: BinaryTree.h BinaryTree.cpp
+	$(CC) $(CFLAGS) -c BinaryTree.cpp
 
 # Clean up the source code directory
 clean:

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "Node.h"
+#include "BinaryTree.h"
 
 using namespace std;
 
