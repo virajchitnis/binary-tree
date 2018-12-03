@@ -23,5 +23,9 @@ public:
   bool has_right_child() { if(_right_child != 0) return true; return false; }
 
   friend ostream& operator<<(ostream& os, const Node& n);
+
+  bool operator==(const Node& p) const;
+  bool operator<(const Node& p) const;
+  bool operator>(const Node& p) const;
 };
 #endif
