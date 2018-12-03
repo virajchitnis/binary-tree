@@ -44,12 +44,14 @@ int main() {
     cout << "a != c" << endl;
   }
 
-  BinaryTree bt(a);
+  BinaryTree bt;
+  bt.insert(a);
   bt.insert(b);
   bt.insert(new Node("Person"));
   bt.insert(new Node("Blah"));
   bt.insert(new Node("Wow"));
-  cout << bt << endl;
+  cout << bt;
+  cout << "Size: " << bt.size() << endl;
   // cout << bt.insert(b);
   // cout << bt.insert(c);
 

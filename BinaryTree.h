@@ -13,17 +13,18 @@ using namespace std;
 #define BINARYTREE
 class BinaryTree {
 private:
-  Node *_first_node;
+  Node *_first_node = 0;
+  int _size = 0;
   Node* recursive_insert(Node *new_node, Node *curr_node);
   ostream& recursive_print(ostream& os, Node *curr_node) const;
 public:
-  BinaryTree(Node *fnode) : _first_node(fnode) {}
+  BinaryTree();
+  BinaryTree(Node *fnode) : _first_node(fnode) { _size++; }
 
   Node* insert(Node *new_node);
+  int size() const { return _size; }
 
   Node* first_node() const { return _first_node; }
-
-  void set_first_node(Node *n) { _first_node = n; }
 
   bool has_first_node() { if(_first_node != 0) return true; return false; }
 
