@@ -4,6 +4,7 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include "Node.h"
 #include "BinaryTree.h"
 
@@ -45,23 +46,31 @@ int main() {
   }
 
   BinaryTree bt;
-  bt.insert(a);
-  bt.insert(b);
-  bt.insert(new Node("Person"));
-  bt.insert(new Node("Blah"));
-  bt.insert(new Node("Wow"));
-  bt.insert(new Node("Irate"));
+  string file_name = "best15.txt";
+  cout << "Reading from file..." << endl;
+  ifstream infile("./test_files/" + file_name);
+  string pw;
+  while (infile >> pw) {
+    bt.insert(new Node(pw));
+  }
   cout << bt;
   cout << "Size: " << bt.size() << endl;
+
   cout << "Contains (Blah): " << bt.lookup("Blah") << endl;
-  cout << "Contains (Test): " << bt.lookup("Test") << endl;
+  cout << "Contains (Test): " << bt.lookup("dragon") << endl;
   cout << "Contains (Irate): " << bt.lookup("Irate") << endl;
 
-  BinaryTree rt = *bt.search("ir");
-  cout << "Search (ir):" << endl;
+  BinaryTree rt = *bt.search("ag");
+  cout << "Search (ag):" << endl;
   cout << rt;
-  // cout << bt.insert(b);
-  // cout << bt.insert(c);
+
+  rt = *bt.search("a");
+  cout << "Search (a):" << endl;
+  cout << rt;
+
+  rt = *bt.search("e");
+  cout << "Search (e):" << endl;
+  cout << rt;
 
   return 0;
 }

@@ -30,7 +30,7 @@ public:
 
   Node* first_node() const { return _first_node; }
 
-  bool has_first_node() { if(_first_node != 0) return true; return false; }
+  bool has_first_node() const { if(_first_node != 0) return true; return false; }
 
   friend ostream& operator<<(ostream& os, const BinaryTree& n);
 };

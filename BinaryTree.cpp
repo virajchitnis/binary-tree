@@ -99,6 +99,9 @@ BinaryTree* BinaryTree::search(string query) {
 }
 
 // Overload the << operator
-ostream& operator<<(ostream& os, const BinaryTree& n) {
-  return n.recursive_print(os, n.first_node());
+ostream& operator<<(ostream& os, const BinaryTree& bt) {
+  if (!bt.has_first_node()) {
+    return os;
+  }
+  return bt.recursive_print(os, bt.first_node());
 }

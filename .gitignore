@@ -31,3 +31,6 @@
 *.out
 *.app
 binary-tree
+
+# Test files
+test_files/
