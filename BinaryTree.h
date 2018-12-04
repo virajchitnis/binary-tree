@@ -30,6 +30,7 @@ public:
   int size() const { return _size; }
 
   Node* find_minimum_value(Node *curr_node);
+  Node* find_maximum_value(Node *curr_node);
 
   void read_file(string file_name);
 

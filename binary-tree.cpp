@@ -29,10 +29,19 @@ int main(int argc, char** argv) {
     if (opt == "exit" || opt == "E" || opt == "e") {
       return 0;
     }
-    else if (opt == "M" || opt == "m") {
+    else if (opt == "P" || opt == "p") {
+      cout << bt;
+      cout << "Size: " << bt.size() << endl;
+    }
+    else if (opt == "MIN" || opt == "min") {
       cout << "Searching for smallest entry..." << endl;
       Node *mn = bt.find_minimum_value(bt.first_node());
       cout << "Smallest entry: " << *mn << endl;
+    }
+    else if (opt == "MAX" || opt == "max") {
+      cout << "Searching for largest entry..." << endl;
+      Node *max = bt.find_maximum_value(bt.first_node());
+      cout << "Largest entry: " << *max << endl;
     }
     else {
       cin >> input;

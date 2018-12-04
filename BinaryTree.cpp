@@ -16,6 +16,13 @@ Node* BinaryTree::find_minimum_value(Node *curr_node) {
   return curr_node;
 }
 
+Node* BinaryTree::find_maximum_value(Node *curr_node) {
+  if (curr_node->has_right_child()) {
+    return find_maximum_value(curr_node->right_child());
+  }
+  return curr_node;
+}
+
 Node* BinaryTree::recursive_insert(Node *new_node, Node *curr_node) {
   if (*new_node < *curr_node) {
     if (curr_node->has_left_child()) {
