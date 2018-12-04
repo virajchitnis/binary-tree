@@ -102,8 +102,13 @@ void BinaryTree::read_file(string file_name) {
   cout << "Reading from file..." << endl;
   ifstream infile(file_name);
   string word;
+  int word_count = 0;
   while (infile >> word) {
     insert(new Node(word));
+    word_count++;
+    if ((word_count % 1000000) == 0) {
+      cout << word_count/1000000 << " million entries read so far..." << endl;
+    }
   }
 }
 
