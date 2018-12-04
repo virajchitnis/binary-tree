@@ -20,7 +20,7 @@ int main() {
   string opt, input;
   cout << "binary-tree> ";
   while (cin >> opt) {
-    if (opt == "0") {
+    if (opt == "exit" || opt == "E" || opt == "e") {
       return 0;
     }
     else {
@@ -32,28 +32,18 @@ int main() {
         Node *n = bt.insert(new Node(input));
         cout << *n << endl;
       }
+      else if (opt == "S") {
+        cout << "Searching for (" << input << ")..." << endl;
+        BinaryTree rt = *bt.search(input);
+        cout << rt;
+        cout << "Found " << rt.size() << " entries." << endl;
+      }
       else {
         cout << "Invalid input" << endl;
       }
       cout << "binary-tree> ";
     }
   }
-
-  // cout << "Contains (Blah): " << bt.lookup("Blah") << endl;
-  // cout << "Contains (dragon): " << bt.lookup("dragon") << endl;
-  // cout << "Contains (Irate): " << bt.lookup("Irate") << endl;
-  //
-  // BinaryTree rt = *bt.search("ag");
-  // cout << "Search (ag):" << endl;
-  // cout << rt;
-  //
-  // rt = *bt.search("a");
-  // cout << "Search (a):" << endl;
-  // cout << rt;
-  //
-  // rt = *bt.search("e");
-  // cout << "Search (e):" << endl;
-  // cout << rt;
 
   return 0;
 }
