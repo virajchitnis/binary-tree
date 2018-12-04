@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
   else {
     file_name = argv[1];
   }
-  
+
   BinaryTree bt;
   bt.read_file(file_name);
   cout << "Size: " << bt.size() << endl;
@@ -29,16 +29,21 @@ int main(int argc, char** argv) {
     if (opt == "exit" || opt == "E" || opt == "e") {
       return 0;
     }
+    else if (opt == "M" || opt == "m") {
+      cout << "Searching for smallest entry..." << endl;
+      Node *mn = bt.find_minimum_value(bt.first_node());
+      cout << "Smallest entry: " << *mn << endl;
+    }
     else {
       cin >> input;
-      if (opt == "Q") {
+      if (opt == "Q" || opt == "q") {
         cout << "Lookup (" << input << "): " << bt.lookup(input) << endl;
       }
-      else if (opt == "A") {
+      else if (opt == "A" || opt == "a") {
         Node *n = bt.insert(new Node(input));
         cout << *n << endl;
       }
-      else if (opt == "S") {
+      else if (opt == "S" || opt == "s") {
         cout << "Searching for (" << input << ")..." << endl;
         BinaryTree rt = *bt.search(input);
         cout << rt;
@@ -47,8 +52,8 @@ int main(int argc, char** argv) {
       else {
         cout << "Invalid input" << endl;
       }
-      cout << "binary-tree> ";
     }
+    cout << "binary-tree> ";
   }
 
   return 0;

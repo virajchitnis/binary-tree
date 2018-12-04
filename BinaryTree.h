@@ -29,6 +29,8 @@ public:
   BinaryTree* search(string query);
   int size() const { return _size; }
 
+  Node* find_minimum_value(Node *curr_node);
+
   void read_file(string file_name);
 
   Node* first_node() const { return _first_node; }

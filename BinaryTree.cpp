@@ -9,6 +9,13 @@ BinaryTree::BinaryTree() {
   // Do nothing.
 }
 
+Node* BinaryTree::find_minimum_value(Node *curr_node) {
+  if (curr_node->has_left_child()) {
+    return find_minimum_value(curr_node->left_child());
+  }
+  return curr_node;
+}
+
 Node* BinaryTree::recursive_insert(Node *new_node, Node *curr_node) {
   if (*new_node < *curr_node) {
     if (curr_node->has_left_child()) {
