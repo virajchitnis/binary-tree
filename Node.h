@@ -33,5 +33,8 @@ public:
   bool operator==(const Node& p) const;
   bool operator<(const Node& p) const;
   bool operator>(const Node& p) const;
+
+  // Destructor
+  ~Node();
 };
 #endif

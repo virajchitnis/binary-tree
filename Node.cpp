@@ -39,3 +39,8 @@ bool Node::operator>(const Node& p) const {
   }
   return false;
 }
+
+Node::~Node() {
+  delete _left_child;
+  delete _right_child;
+}

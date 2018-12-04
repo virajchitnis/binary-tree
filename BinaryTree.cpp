@@ -112,6 +112,10 @@ void BinaryTree::read_file(string file_name) {
   }
 }
 
+BinaryTree::~BinaryTree() {
+  delete _first_node;
+}
+
 // Overload the << operator
 ostream& operator<<(ostream& os, const BinaryTree& bt) {
   if (!bt.has_first_node()) {

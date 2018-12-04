@@ -36,5 +36,8 @@ public:
   bool has_first_node() const { if(_first_node != 0) return true; return false; }
 
   friend ostream& operator<<(ostream& os, const BinaryTree& n);
+
+  // Destructor
+  ~BinaryTree();
 };
 #endif
