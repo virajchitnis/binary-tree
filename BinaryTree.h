@@ -4,6 +4,7 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include "Node.h"
 
@@ -27,6 +28,8 @@ public:
   bool lookup(string target);
   BinaryTree* search(string query);
   int size() const { return _size; }
+
+  void read_file(string file_name);
 
   Node* first_node() const { return _first_node; }
 

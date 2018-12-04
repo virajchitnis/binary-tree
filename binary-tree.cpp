@@ -46,13 +46,8 @@ int main() {
   }
 
   BinaryTree bt;
-  string file_name = "best15.txt";
-  cout << "Reading from file..." << endl;
-  ifstream infile("./test_files/" + file_name);
-  string pw;
-  while (infile >> pw) {
-    bt.insert(new Node(pw));
-  }
+  string file_name = "./test_files/best15.txt";
+  bt.read_file(file_name);
   cout << bt;
   cout << "Size: " << bt.size() << endl;
 

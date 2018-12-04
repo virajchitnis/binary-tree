@@ -98,6 +98,15 @@ BinaryTree* BinaryTree::search(string query) {
   return bt;
 }
 
+void BinaryTree::read_file(string file_name) {
+  cout << "Reading from file..." << endl;
+  ifstream infile(file_name);
+  string word;
+  while (infile >> word) {
+    insert(new Node(word));
+  }
+}
+
 // Overload the << operator
 ostream& operator<<(ostream& os, const BinaryTree& bt) {
   if (!bt.has_first_node()) {
