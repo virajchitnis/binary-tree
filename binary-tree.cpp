@@ -9,10 +9,16 @@
 
 using namespace std;
 
-int main() {
-  cout << "Enter file name > ";
+int main(int argc, char** argv) {
   string file_name;
-  cin >> file_name;
+  if (argc <= 1) {
+    cout << "Enter file name> ";
+    cin >> file_name;
+  }
+  else {
+    file_name = argv[1];
+  }
+  
   BinaryTree bt;
   bt.read_file(file_name);
   cout << "Size: " << bt.size() << endl;
