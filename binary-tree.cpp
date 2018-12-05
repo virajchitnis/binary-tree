@@ -48,6 +48,15 @@ int main(int argc, char** argv) {
       if (opt == "Q" || opt == "q") {
         cout << "Lookup (" << input << "): " << bt.lookup(input) << endl;
       }
+      else if (opt == "G" || opt == "g") {
+        Node *cg = bt.get(input);
+        if (cg != 0) {
+          cout << "Get (" << input << "): " << *cg << endl;
+        }
+        else {
+          cout << "No matching entry found." << endl;
+        }
+      }
       else if (opt == "A" || opt == "a") {
         Node *n = bt.insert(new Node(input));
         cout << *n << endl;

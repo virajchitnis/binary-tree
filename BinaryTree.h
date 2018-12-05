@@ -21,6 +21,7 @@ private:
   bool recursive_lookup(Node *curr_node, Node *target);
   void recursive_search(Node *curr_node, string *query, BinaryTree *bt);
   void recursive_remove(Node *curr_node, Node *target);
+  Node* recursive_get(Node *curr_node, Node *target);
 public:
   BinaryTree();
   BinaryTree(Node *fnode) : _first_node(fnode) { _size++; }
@@ -28,6 +29,7 @@ public:
   Node* insert(Node *new_node);
   void remove(string target);
   bool lookup(string target);
+  Node* get(string target);
   BinaryTree* search(string query);
   int size() const { return _size; }
 

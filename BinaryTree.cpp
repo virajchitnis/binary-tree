@@ -165,6 +165,27 @@ bool BinaryTree::lookup(string target) {
   return recursive_lookup(_first_node, n);
 }
 
+Node* BinaryTree::recursive_get(Node *curr_node, Node *target) {
+  if (*curr_node == *target) {
+    return curr_node;
+  }
+  else if (*target < *curr_node && curr_node->has_left_child()) {
+    return recursive_get(curr_node->left_child(), target);
+  }
+  else if (*target > *curr_node && curr_node->has_right_child()) {
+    return recursive_get(curr_node->right_child(), target);
+  }
+  return 0;
+}
+
+Node* BinaryTree::get(string target) {
+  if (_first_node == 0) {
+    return 0;
+  }
+  Node *n = new Node(target);
+  return recursive_get(_first_node, n);
+}
+
 void BinaryTree::recursive_search(Node *curr_node, string *query, BinaryTree *bt) {
   string v = curr_node->value();
   transform(v.begin(), v.end(), v.begin(), ::tolower);
