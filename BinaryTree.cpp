@@ -9,6 +9,57 @@ BinaryTree::BinaryTree() {
   // Do nothing.
 }
 
+void BinaryTree::recursive_remove(Node *curr_node, Node *target) {
+  if (curr_node->has_left_child()) {
+    Node *test_left = curr_node->left_child();
+    if (*test_left == *target) {
+      if (!test_left->has_left_child() && !test_left->has_right_child()) {
+        curr_node->set_left_child(0);
+      }
+      else if (test_left->has_left_child() && !test_left->has_right_child()) {
+        curr_node->set_left_child(test_left->left_child());
+      }
+      else if (test_left->has_right_child() && !test_left->has_left_child()) {
+        curr_node->set_left_child(test_left->right_child());
+      }
+      else {
+        Node *min = find_minimum_value(test_left->right_child());
+        min->set_left_child(test_left->left_child());
+        curr_node->set_left_child(min);
+      }
+      _size--;
+      return;
+    }
+    else if (*target < *curr_node) {
+      return recursive_remove(curr_node->left_child(), target);
+    }
+  }
+  if (curr_node->has_right_child()) {
+    Node *test_right = curr_node->right_child();
+    if (*test_right == *target) {
+      if (!test_right->has_left_child() && !test_right->has_right_child()) {
+        curr_node->set_right_child(0);
+      }
+      else if (test_right->has_left_child() && !test_right->has_right_child()) {
+        curr_node->set_right_child(test_right->left_child());
+      }
+      else if (test_right->has_right_child() && !test_right->has_left_child()) {
+        curr_node->set_right_child(test_right->right_child());
+      }
+      else {
+        Node *min = find_minimum_value(test_right->right_child());
+        min->set_left_child(test_right->left_child());
+        curr_node->set_right_child(min);
+      }
+      _size--;
+      return;
+    }
+    else if (*target > *curr_node) {
+      return recursive_remove(curr_node->right_child(), target);
+    }
+  }
+}
+
 void BinaryTree::remove(string target) {
   Node *n = new Node(target);
   if (_first_node == 0) {
@@ -32,6 +83,7 @@ void BinaryTree::remove(string target) {
     _size--;
     return;
   }
+  return recursive_remove(_first_node, n);
 }
 
 Node* BinaryTree::find_minimum_value(Node *curr_node) {

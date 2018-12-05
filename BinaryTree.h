@@ -20,6 +20,7 @@ private:
   ostream& recursive_print(ostream& os, Node *curr_node) const;
   bool recursive_lookup(Node *curr_node, Node *target);
   void recursive_search(Node *curr_node, string *query, BinaryTree *bt);
+  void recursive_remove(Node *curr_node, Node *target);
 public:
   BinaryTree();
   BinaryTree(Node *fnode) : _first_node(fnode) { _size++; }
