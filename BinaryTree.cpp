@@ -9,6 +9,31 @@ BinaryTree::BinaryTree() {
   // Do nothing.
 }
 
+void BinaryTree::remove(string target) {
+  Node *n = new Node(target);
+  if (_first_node == 0) {
+    return;
+  }
+  if (*_first_node == *n) {
+    if (!_first_node->has_left_child() && !_first_node->has_right_child()) {
+      _first_node = 0;
+    }
+    else if (_first_node->has_left_child() && !_first_node->has_right_child()) {
+      _first_node = _first_node->left_child();
+    }
+    else if (_first_node->has_right_child() && !_first_node->has_left_child()) {
+      _first_node = _first_node->right_child();
+    }
+    else {
+      Node *min = find_minimum_value(_first_node->right_child());
+      min->set_left_child(_first_node->left_child());
+      _first_node = min;
+    }
+    _size--;
+    return;
+  }
+}
+
 Node* BinaryTree::find_minimum_value(Node *curr_node) {
   if (curr_node->has_left_child()) {
     return find_minimum_value(curr_node->left_child());

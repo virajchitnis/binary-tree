@@ -52,6 +52,11 @@ int main(int argc, char** argv) {
         Node *n = bt.insert(new Node(input));
         cout << *n << endl;
       }
+      else if (opt == "D" || opt == "d") {
+        cout << "Deleting (" << input << ")..." << endl;
+        bt.remove(input);
+        cout << "Done!" << endl;
+      }
       else if (opt == "S" || opt == "s") {
         cout << "Searching for (" << input << ")..." << endl;
         BinaryTree rt = *bt.search(input);

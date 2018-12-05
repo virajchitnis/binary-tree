@@ -25,6 +25,7 @@ public:
   BinaryTree(Node *fnode) : _first_node(fnode) { _size++; }
 
   Node* insert(Node *new_node);
+  void remove(string target);
   bool lookup(string target);
   BinaryTree* search(string query);
   int size() const { return _size; }
