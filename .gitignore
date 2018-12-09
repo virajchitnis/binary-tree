@@ -34,3 +34,6 @@ binary-tree
 
 # Test files
 test_files/
+
+# Error files
+*.dSYM/
